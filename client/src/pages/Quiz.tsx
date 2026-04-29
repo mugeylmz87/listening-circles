@@ -48,9 +48,14 @@ export default function Quiz() {
   const back = () => {
     if (idx === 0) return;
     setIdx(idx - 1);
-    setPicked(answers[QUESTIONS[idx - 1].id] ?? null);
+    // Clear `picked` so the option buttons are clickable again.
+    // The previously-chosen answer still lives in `answers` and is shown
+    // as a subtle "previously chose" indicator below.
+    setPicked(null);
     setLeaving(false);
   };
+
+  const previousAnswer = answers[q.id];
 
   return (
     <div className="relative min-h-screen bg-background overflow-hidden">
@@ -103,6 +108,7 @@ export default function Quiz() {
             {q.options.map((opt, i) => {
               const isPicked = picked === i;
               const isDimmed = picked !== null && picked !== i;
+              const isPrevious = picked === null && previousAnswer === i;
               return (
                 <button
                   key={i}
@@ -113,9 +119,12 @@ export default function Quiz() {
                       ? "bg-[hsl(86_80%_70%)] wiggle"
                       : isDimmed
                         ? "bg-card opacity-40"
-                        : "bg-card"
+                        : isPrevious
+                          ? "bg-[hsl(46_100%_92%)] ring-2 ring-[hsl(330_95%_58%)] ring-offset-2 ring-offset-background"
+                          : "bg-card"
                   }`}
                   data-testid={`button-option-${i}`}
+                  aria-pressed={isPrevious || isPicked}
                 >
                   {opt.emoji && (
                     <span className="text-2xl leading-none shrink-0" aria-hidden>
@@ -130,7 +139,13 @@ export default function Quiz() {
             })}
           </div>
 
-          <p className="mt-8 text-center text-xs font-mono uppercase tracking-widest text-foreground/50">
+          {previousAnswer !== undefined && picked === null && (
+            <p className="mt-4 text-center text-xs font-mono uppercase tracking-widest text-[hsl(330_95%_58%)]" data-testid="text-previously-chose">
+              your previous pick is highlighted · tap any option to change it
+            </p>
+          )}
+
+          <p className="mt-6 text-center text-xs font-mono uppercase tracking-widest text-foreground/50">
             no wrong answers · you can always edit later in your head
           </p>
         </div>
