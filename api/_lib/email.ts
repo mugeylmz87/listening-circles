@@ -23,6 +23,14 @@ export async function sendEmail(opts: {
     text: opts.text,
     replyTo: opts.replyTo,
   });
+  // Resend returns { data, error } — surface the error so callers can log it.
+  if (result.error) {
+    const err = new Error(
+      `Resend error: ${result.error.name || "unknown"} — ${result.error.message || JSON.stringify(result.error)}`,
+    );
+    (err as any).resendError = result.error;
+    throw err;
+  }
   return result;
 }
 

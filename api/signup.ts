@@ -47,8 +47,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   try {
     await sendEmail({ subject, text, replyTo: email });
     return res.status(200).json({ ok: true });
-  } catch (err) {
+  } catch (err: any) {
     console.error("signup email failed", err);
-    return res.status(500).json({ error: "Email send failed" });
+    return res.status(500).json({
+      error: "Email send failed",
+      detail: err?.message || String(err),
+      resendError: err?.resendError || null,
+    });
   }
 }
