@@ -77,10 +77,11 @@ export default function Landing() {
         <div className="mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-4">
           <Link
             href="/quiz"
-            className="press-in chunky-border rounded-full bg-[hsl(330_95%_58%)] text-white px-8 py-4 text-lg font-bold chunky-shadow"
+            className="group press-in chunky-border rounded-full bg-[hsl(330_95%_58%)] text-white px-8 py-4 text-lg font-bold chunky-shadow cursor-pointer inline-flex items-center gap-2"
             data-testid="button-start-quiz"
           >
-            take the AI feelings quiz →
+            <span>What's your AI archetype? Find out</span>
+            <span aria-hidden="true" className="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
           </Link>
           <span className="text-sm text-foreground/60 font-mono">
             ~90 seconds · 7 questions · no wrong answers
@@ -143,7 +144,7 @@ export default function Landing() {
         <div className="mt-16 text-center">
           <Link
             href="/quiz"
-            className="press-in inline-block chunky-border rounded-full bg-[hsl(230_85%_55%)] text-white px-10 py-5 text-xl font-bold chunky-shadow-lg"
+            className="press-in inline-block chunky-border rounded-full bg-[hsl(230_85%_55%)] text-white px-10 py-5 text-xl font-bold chunky-shadow-lg cursor-pointer"
             data-testid="button-start-quiz-bottom"
           >
             okay, I'll take the quiz ✨
