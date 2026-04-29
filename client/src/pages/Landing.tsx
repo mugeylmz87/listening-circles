@@ -136,11 +136,12 @@ export default function Landing() {
             a bit about why I'm doing this
           </h3>
           <p className="mt-3 text-foreground/85 leading-relaxed">
-            I'm a co-active, ICF-certified coach with hundreds of hours under my
-            belt. By day I'm in product and AI conversations. By night I hear the
-            quieter side in 1:1 sessions — the anxiety, the grief, the weird joy,
-            the <span className="font-serif-display italic">
-              "am I still good at my job?"
+            I'm a Co-active and ICF-certified Executive Coach with hundreds of
+            hours under my belt. By day I'm in product and AI conversations. By
+            night I hear the quieter side in 1:1 sessions — the anxiety, the
+            grief, the weird joy, the{" "}
+            <span className="font-serif-display italic">
+              "what am I here for?"
             </span>{" "}
             that doesn't fit in a team meeting.
           </p>
