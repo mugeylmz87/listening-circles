@@ -147,9 +147,19 @@ export default function Landing() {
           <p className="mt-3 font-serif-display text-2xl italic text-[hsl(330_95%_58%)]">
             I don't think we're meant to process this alone.
           </p>
-          <p className="mt-3 text-right text-foreground/70">
-            — warmly, Müge
-          </p>
+          <div className="mt-5 flex items-center justify-end gap-4">
+            <p className="font-serif-display italic text-2xl text-foreground/80" data-testid="text-warmly-muge">
+              — warmly, Müge
+            </p>
+            <img
+              src="/muge.jpg"
+              alt="Müge Yılmaz"
+              width={80}
+              height={80}
+              className="w-20 h-20 rounded-full object-cover chunky-border chunky-shadow rotate-[-3deg] shrink-0"
+              data-testid="img-muge-host"
+            />
+          </div>
         </div>
 
         <div className="mt-16 text-center">
