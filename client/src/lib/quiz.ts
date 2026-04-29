@@ -65,9 +65,9 @@ export const ARCHETYPES: Record<ArchetypeKey, Archetype> = {
   fatigued: {
     key: "fatigued",
     name: "The AI-Fatigued",
-    tagline: "If one more person says 'have you tried asking ChatGPT,' you will scream.",
+    tagline: "If one more person says 'have you tried asking Gemini,' you will scream.",
     vibe:
-      "You're tired. Of the takes. Of the pivots. Of every product turning into a chat box. You want one conversation that isn't selling you anything or telling you what the future of work is.",
+      "You're tired. Of the takes. Of the pivots. Of every product turning into a chat box. You want one conversation that isn't telling you about a new prompt or a feature or telling you what the future of work is.",
     emoji: "🫠",
     bg: "bg-[hsl(43_95%_58%)]",
     fg: "text-[hsl(240_30%_12%)]",
