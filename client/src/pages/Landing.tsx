@@ -26,6 +26,17 @@ export default function Landing() {
           </span>
         </div>
 
+        <p
+          className="mt-3 ml-2 font-mono italic text-[12px] text-foreground/65"
+          data-testid="text-from-attribution"
+        >
+          — from{" "}
+          <span className="not-italic font-bold uppercase tracking-[0.14em] text-foreground/85">
+            Müge Yılmaz
+          </span>
+          , with care
+        </p>
+
         <h1 className="mt-6 text-[2.75rem] sm:text-7xl font-bold leading-[1.02] sm:leading-[0.95] tracking-tight">
           hi <span className="font-serif-display text-[hsl(330_95%_58%)]">friend</span>,
           <br />
