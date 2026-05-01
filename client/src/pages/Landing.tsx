@@ -67,22 +67,73 @@ export default function Landing() {
           one has a place to say the true thing out loud.
         </p>
 
-        <div className="mt-10 grid gap-3 max-w-xl">
-          {[
-            "maybe you're in it, a little obsessed, a little fried.",
-            "maybe you've been avoiding it, and the avoidance itself feels heavy.",
-            "maybe you're using it but quietly feel behind.",
-            "maybe you're so sick of AI in every conversation you want to scream.",
-            "maybe you love it, and feel weirdly alone in that.",
-            "or maybe you feel something that doesn't fit any of these — and that's exactly the point.",
-          ].map((line, i) => (
-            <div
-              key={i}
-              className="chunky-border rounded-2xl bg-card px-5 py-3 chunky-shadow-sm rotate-[-0.4deg] even:rotate-[0.6deg] text-base"
+        <div className="mt-10 max-w-xl">
+          <p
+            className="font-mono uppercase tracking-[0.18em] text-xs text-foreground/60"
+            data-testid="text-cards-label"
+          >
+            which one sounds like you?
+          </p>
+          <p
+            className="mt-1 font-serif-display italic text-2xl text-[hsl(330_95%_58%)]"
+            data-testid="text-cards-prompt"
+          >
+            maybe you're…
+          </p>
+
+          <div className="mt-5 grid gap-3">
+            {[
+              { text: "in it, a little obsessed, a little fried?", isLast: false },
+              { text: "avoiding it — and the avoidance itself feels heavy?", isLast: false },
+              { text: "using it but quietly feel behind?", isLast: false },
+              { text: "so sick of AI in every conversation you could scream?", isLast: false },
+              { text: "loving it, and feel weirdly alone in that?", isLast: false },
+              {
+                text: "or feeling something that doesn't fit any of these — and that's exactly the point.",
+                isLast: true,
+              },
+            ].map((card, i) => (
+              <div
+                key={i}
+                className={`chunky-border rounded-2xl px-5 py-3 chunky-shadow-sm rotate-[-0.4deg] even:rotate-[0.6deg] text-base flex gap-3 items-start ${
+                  card.isLast ? "bg-[hsl(46_100%_92%)]" : "bg-card"
+                }`}
+                data-testid={`card-maybe-${i}`}
+              >
+                {!card.isLast && (
+                  <span
+                    aria-hidden
+                    className="font-serif-display italic text-[hsl(330_95%_58%)] shrink-0 leading-snug"
+                  >
+                    —
+                  </span>
+                )}
+                <span className="leading-snug">{card.text}</span>
+              </div>
+            ))}
+          </div>
+
+          <p
+            className="mt-6 font-serif-display italic text-lg text-foreground/75 leading-relaxed"
+            data-testid="text-soft-handoff"
+          >
+            not sure which one?{" "}
+            <Link
+              href="/quiz"
+              className="underline decoration-2 decoration-[hsl(330_95%_58%)] underline-offset-4 hover:text-[hsl(330_95%_58%)] transition-colors"
+              data-testid="link-find-out-together"
             >
-              {line}
-            </div>
-          ))}
+              let's find out together →
+            </Link>{" "}
+            or{" "}
+            <a
+              href="mailto:mugeylmz87@gmail.com?subject=hi%20from%20listening%20circles"
+              className="underline decoration-2 decoration-[hsl(230_85%_55%)] underline-offset-4 hover:text-[hsl(230_85%_55%)] transition-colors"
+              data-testid="link-email-muge"
+            >
+              email me directly →
+            </a>
+          </p>
         </div>
 
         <div className="mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-4">
