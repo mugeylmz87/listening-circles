@@ -114,17 +114,30 @@ export default function Landing() {
           </div>
 
           <p
-            className="mt-6 font-serif-display italic text-lg text-foreground/75 leading-relaxed"
+            className="mt-6 font-serif-display italic text-lg text-foreground/75"
             data-testid="text-soft-handoff"
           >
-            not sure which one?{" "}
-            <Link
-              href="/quiz"
-              className="underline decoration-2 decoration-[hsl(330_95%_58%)] underline-offset-4 hover:text-[hsl(330_95%_58%)] transition-colors"
-              data-testid="link-find-out-together"
-            >
-              let's find out together →
-            </Link>{" "}
+            not sure which one?
+          </p>
+        </div>
+
+        <div className="mt-5 flex flex-col items-start gap-3">
+          <Link
+            href="/quiz"
+            className="group press-in chunky-border rounded-full bg-[hsl(330_95%_58%)] text-white px-8 py-4 text-lg font-bold chunky-shadow cursor-pointer inline-flex items-center gap-2"
+            data-testid="button-start-quiz"
+          >
+            <span>let's find your AI archetype</span>
+            <span aria-hidden="true" className="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
+          </Link>
+          <span className="text-sm text-foreground/60 font-mono">
+            ~90 seconds · 7 questions · no wrong answers
+          </span>
+
+          <p
+            className="mt-3 font-serif-display italic text-base text-foreground/75"
+            data-testid="text-secondary-cta"
+          >
             or{" "}
             <a
               href="mailto:mugeylmz87@gmail.com?subject=hi%20from%20listening%20circles"
@@ -134,23 +147,27 @@ export default function Landing() {
               email me directly →
             </a>
           </p>
-        </div>
-
-        <div className="mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-          <Link
-            href="/quiz"
-            className="group press-in chunky-border rounded-full bg-[hsl(330_95%_58%)] text-white px-8 py-4 text-lg font-bold chunky-shadow cursor-pointer inline-flex items-center gap-2"
-            data-testid="button-start-quiz"
+          <p
+            className="font-serif-display italic text-base text-foreground/75"
+            data-testid="text-tertiary-cta"
           >
-            <span>What's your AI archetype? Find out</span>
-            <span aria-hidden="true" className="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
-          </Link>
-          <span className="text-sm text-foreground/60 font-mono">
-            ~90 seconds · 7 questions · no wrong answers
-          </span>
+            or{" "}
+            <button
+              type="button"
+              onClick={() => {
+                document
+                  .getElementById("about-circles")
+                  ?.scrollIntoView({ behavior: "smooth", block: "start" });
+              }}
+              className="underline decoration-2 decoration-[hsl(86_80%_45%)] underline-offset-4 hover:text-[hsl(86_80%_30%)] transition-colors cursor-pointer font-serif-display italic"
+              data-testid="link-join-circles"
+            >
+              join the circles ↓
+            </button>
+          </p>
         </div>
 
-        <div className="mt-20 chunky-border rounded-3xl bg-[hsl(86_80%_70%)] p-8 chunky-shadow rotate-[-0.6deg]">
+        <div id="about-circles" className="mt-20 chunky-border rounded-3xl bg-[hsl(86_80%_70%)] p-8 chunky-shadow rotate-[-0.6deg] scroll-mt-8">
           <h2 className="font-serif-display text-4xl italic">
             about the circles
           </h2>
